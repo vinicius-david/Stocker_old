@@ -6,6 +6,8 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  overflow: hidden;
 `;
 
 export const Header = styled.header`
@@ -19,7 +21,7 @@ export const Header = styled.header`
   justify-content: center;
 `;
 
-export const HeaderContainer = styled.div`
+export const HeaderContent = styled.div`
   width: 60%;
   display: flex;
   justify-content: center;
@@ -74,4 +76,38 @@ export const Main = styled.div`
 
   display: flex;
   flex: 1;
+
+  position: relative;
+`;
+
+export const ChartContainer = styled.div`
+  width: 50%;
+  height: 50%;
+  margin: 10%;
+`;
+
+export const StocksContainer = styled.div`
+  width: 30%;
+  max-height: 87%;
+  background: #aaa;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-y: scroll;
+`;
+
+export const StockItem = styled.div`
+  width: 60%;
+  height: 10%;
+  padding: 16px;
+  margin-top: 32px;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #ddd;
 `;
