@@ -15,13 +15,13 @@ export const Container = styled.div<ContainerProps>`
 
   border-radius: 8px;
 
-  background: #fff;
-  border: 2px solid #fff;
-  color: #aaaaff;
+  background: var(--color-input-background);
+  border: 2px solid var(--color-input-background);
+  color: var(--color-primary-light);
 
   &:hover {
     transition: 300ms;
-    border-color: ${shade(0.2, '#4488aa')};
+    border-color: var(--color-primary-dark);
   }
 
   svg {
@@ -30,8 +30,8 @@ export const Container = styled.div<ContainerProps>`
   }
 
   input {
-    padding: 16px 0;
-    background: #fff;
+    padding: 6px 12px;
+    background: var(--color-input-background);
     width: 75%;
 
     border-radius: 8px;
@@ -46,14 +46,14 @@ export const Container = styled.div<ContainerProps>`
   ${props =>
     props.isFocused &&
     css`
-      color: ${shade(0.2, '#4488aa')};
-      border-color: ${shade(0.2, '#4488aa')};
+      color: var(--color-primary-dark);
+      border-color: var(--color-primary-dark);
     `}
 
   ${props =>
     props.isFilled &&
     css`
-      color: ${shade(0.2, '#4488aa')};
+      color: var(--color-primary-dark);
     `}
 `;
 
