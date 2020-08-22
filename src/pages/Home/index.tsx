@@ -1,5 +1,13 @@
 import React, { useRef, useCallback, useMemo } from 'react';
-import { FiHome, FiUser, FiSettings, FiSearch } from 'react-icons/fi';
+import {
+  FiHome,
+  FiUser,
+  FiSettings,
+  FiSearch,
+  FiPlusCircle,
+  FiMinusCircle,
+  FiInfo,
+} from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import { Link } from 'react-router-dom';
@@ -16,6 +24,8 @@ import {
   ChartContainer,
   StocksContainer,
   StockItem,
+  StockInfo,
+  StockActions,
 } from './styles';
 
 const Home: React.FC = () => {
@@ -51,6 +61,13 @@ const Home: React.FC = () => {
     [],
   );
 
+  const series = useMemo(
+    () => ({
+      showPoints: true,
+    }),
+    [],
+  );
+
   const axes = useMemo(
     () => [
       { primary: true, type: 'linear', position: 'bottom' },
@@ -62,9 +79,9 @@ const Home: React.FC = () => {
   return (
     <Container>
       <Header>
-        <HeaderContent>
-          <h1>STOCKER</h1>
+        <h1>STOCKER</h1>
 
+        <HeaderContent>
           <Form ref={searchFormRef} onSubmit={handleSearchSubmit}>
             <Input name="search" placeholder="Buscar uma ação" />
 
@@ -86,63 +103,272 @@ const Home: React.FC = () => {
       </Header>
       <Main>
         <ChartContainer>
-          <Chart data={data} axes={axes} />
+          <Chart data={data} series={series} axes={axes} />
         </ChartContainer>
         <StocksContainer>
           <StockItem>
-            <h2>CVCB3</h2>
-            <h3>R$ 99,99</h3>
-            <strong>5%</strong>
+            <StockInfo>
+              <h2>CVCB3</h2>
+              <div>
+                <h3>R$ 99,99</h3>
+                <strong>5%</strong>
+              </div>
+            </StockInfo>
+            <StockActions>
+              <button type="button" className="add">
+                <FiPlusCircle size={24} />
+              </button>
+
+              <button type="button" className="remove">
+                <FiMinusCircle size={24} />
+              </button>
+
+              <button type="button" className="info">
+                <FiInfo size={24} />
+              </button>
+            </StockActions>
           </StockItem>
           <StockItem>
-            <h2>CVCB3</h2>
-            <h3>R$ 99,99</h3>
-            <strong>5%</strong>
+            <StockInfo>
+              <h2>CVCB3</h2>
+              <div>
+                <h3>R$ 99,99</h3>
+                <strong>5%</strong>
+              </div>
+            </StockInfo>
+            <StockActions>
+              <button type="button" className="add">
+                <FiPlusCircle size={24} />
+              </button>
+
+              <button type="button" className="remove">
+                <FiMinusCircle size={24} />
+              </button>
+
+              <button type="button" className="info">
+                <FiInfo size={24} />
+              </button>
+            </StockActions>
           </StockItem>
           <StockItem>
-            <h2>CVCB3</h2>
-            <h3>R$ 99,99</h3>
-            <strong>5%</strong>
+            <StockInfo>
+              <h2>CVCB3</h2>
+              <div>
+                <h3>R$ 99,99</h3>
+                <strong>5%</strong>
+              </div>
+            </StockInfo>
+            <StockActions>
+              <button type="button" className="add">
+                <FiPlusCircle size={24} />
+              </button>
+
+              <button type="button" className="remove">
+                <FiMinusCircle size={24} />
+              </button>
+
+              <button type="button" className="info">
+                <FiInfo size={24} />
+              </button>
+            </StockActions>
           </StockItem>
           <StockItem>
-            <h2>CVCB3</h2>
-            <h3>R$ 99,99</h3>
-            <strong>5%</strong>
+            <StockInfo>
+              <h2>CVCB3</h2>
+              <div>
+                <h3>R$ 99,99</h3>
+                <strong>5%</strong>
+              </div>
+            </StockInfo>
+            <StockActions>
+              <button type="button" className="add">
+                <FiPlusCircle size={24} />
+              </button>
+
+              <button type="button" className="remove">
+                <FiMinusCircle size={24} />
+              </button>
+
+              <button type="button" className="info">
+                <FiInfo size={24} />
+              </button>
+            </StockActions>
           </StockItem>
           <StockItem>
-            <h2>CVCB3</h2>
-            <h3>R$ 99,99</h3>
-            <strong>5%</strong>
+            <StockInfo>
+              <h2>CVCB3</h2>
+              <div>
+                <h3>R$ 99,99</h3>
+                <strong>5%</strong>
+              </div>
+            </StockInfo>
+            <StockActions>
+              <button type="button" className="add">
+                <FiPlusCircle size={24} />
+              </button>
+
+              <button type="button" className="remove">
+                <FiMinusCircle size={24} />
+              </button>
+
+              <button type="button" className="info">
+                <FiInfo size={24} />
+              </button>
+            </StockActions>
           </StockItem>
           <StockItem>
-            <h2>CVCB3</h2>
-            <h3>R$ 99,99</h3>
-            <strong>5%</strong>
+            <StockInfo>
+              <h2>CVCB3</h2>
+              <div>
+                <h3>R$ 99,99</h3>
+                <strong>5%</strong>
+              </div>
+            </StockInfo>
+            <StockActions>
+              <button type="button" className="add">
+                <FiPlusCircle size={24} />
+              </button>
+
+              <button type="button" className="remove">
+                <FiMinusCircle size={24} />
+              </button>
+
+              <button type="button" className="info">
+                <FiInfo size={24} />
+              </button>
+            </StockActions>
           </StockItem>
           <StockItem>
-            <h2>CVCB3</h2>
-            <h3>R$ 99,99</h3>
-            <strong>5%</strong>
+            <StockInfo>
+              <h2>CVCB3</h2>
+              <div>
+                <h3>R$ 99,99</h3>
+                <strong>5%</strong>
+              </div>
+            </StockInfo>
+            <StockActions>
+              <button type="button" className="add">
+                <FiPlusCircle size={24} />
+              </button>
+
+              <button type="button" className="remove">
+                <FiMinusCircle size={24} />
+              </button>
+
+              <button type="button" className="info">
+                <FiInfo size={24} />
+              </button>
+            </StockActions>
           </StockItem>
           <StockItem>
-            <h2>CVCB3</h2>
-            <h3>R$ 99,99</h3>
-            <strong>5%</strong>
+            <StockInfo>
+              <h2>CVCB3</h2>
+              <div>
+                <h3>R$ 99,99</h3>
+                <strong>5%</strong>
+              </div>
+            </StockInfo>
+            <StockActions>
+              <button type="button" className="add">
+                <FiPlusCircle size={24} />
+              </button>
+
+              <button type="button" className="remove">
+                <FiMinusCircle size={24} />
+              </button>
+
+              <button type="button" className="info">
+                <FiInfo size={24} />
+              </button>
+            </StockActions>
           </StockItem>
           <StockItem>
-            <h2>CVCB3</h2>
-            <h3>R$ 99,99</h3>
-            <strong>5%</strong>
+            <StockInfo>
+              <h2>CVCB3</h2>
+              <div>
+                <h3>R$ 99,99</h3>
+                <strong>5%</strong>
+              </div>
+            </StockInfo>
+            <StockActions>
+              <button type="button" className="add">
+                <FiPlusCircle size={24} />
+              </button>
+
+              <button type="button" className="remove">
+                <FiMinusCircle size={24} />
+              </button>
+
+              <button type="button" className="info">
+                <FiInfo size={24} />
+              </button>
+            </StockActions>
           </StockItem>
           <StockItem>
-            <h2>CVCB3</h2>
-            <h3>R$ 99,99</h3>
-            <strong>5%</strong>
+            <StockInfo>
+              <h2>CVCB3</h2>
+              <div>
+                <h3>R$ 99,99</h3>
+                <strong>5%</strong>
+              </div>
+            </StockInfo>
+            <StockActions>
+              <button type="button" className="add">
+                <FiPlusCircle size={24} />
+              </button>
+
+              <button type="button" className="remove">
+                <FiMinusCircle size={24} />
+              </button>
+
+              <button type="button" className="info">
+                <FiInfo size={24} />
+              </button>
+            </StockActions>
           </StockItem>
           <StockItem>
-            <h2>CVCB3</h2>
-            <h3>R$ 99,99</h3>
-            <strong>5%</strong>
+            <StockInfo>
+              <h2>CVCB3</h2>
+              <div>
+                <h3>R$ 99,99</h3>
+                <strong>5%</strong>
+              </div>
+            </StockInfo>
+            <StockActions>
+              <button type="button" className="add">
+                <FiPlusCircle size={24} />
+              </button>
+
+              <button type="button" className="remove">
+                <FiMinusCircle size={24} />
+              </button>
+
+              <button type="button" className="info">
+                <FiInfo size={24} />
+              </button>
+            </StockActions>
+          </StockItem>
+          <StockItem>
+            <StockInfo>
+              <h2>CVCB3</h2>
+              <div>
+                <h3>R$ 99,99</h3>
+                <strong>5%</strong>
+              </div>
+            </StockInfo>
+            <StockActions>
+              <button type="button" className="add">
+                <FiPlusCircle size={24} />
+              </button>
+
+              <button type="button" className="remove">
+                <FiMinusCircle size={24} />
+              </button>
+
+              <button type="button" className="info">
+                <FiInfo size={24} />
+              </button>
+            </StockActions>
           </StockItem>
         </StocksContainer>
       </Main>

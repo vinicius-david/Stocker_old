@@ -10,25 +10,27 @@ export const Container = styled.div`
 
 export const Header = styled.header`
   width: 100vw;
-  height: 10vh;
+  min-height: 10vh;
 
   background: var(--color-primary);
   color: var(--color-text-title);
 
   display: flex;
-  justify-content: center;
-`;
-
-export const HeaderContainer = styled.div`
-  width: 60%;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   h1 {
-    margin-right: auto;
+    margin-left: 5%;
     font-size: 48px;
   }
+`;
+
+export const HeaderContent = styled.div`
+  width: 80%;
+  margin-right: 5%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
   form {
     display: flex;

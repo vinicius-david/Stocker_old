@@ -9,7 +9,7 @@ import Input from '../../components/Input';
 import {
   Container,
   Header,
-  HeaderContainer,
+  HeaderContent,
   IconsContainer,
   Main,
 } from './styles';
@@ -29,9 +29,9 @@ const Home: React.FC = () => {
   return (
     <Container>
       <Header>
-        <HeaderContainer>
-          <h1>STOCKER</h1>
+        <h1>STOCKER</h1>
 
+        <HeaderContent>
           <Form ref={searchFormRef} onSubmit={handleSearchSubmit}>
             <Input name="search" placeholder="Buscar uma ação" />
 
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
             </Link>
             <FiSettings size={24} />
           </IconsContainer>
-        </HeaderContainer>
+        </HeaderContent>
       </Header>
       <Main />
     </Container>

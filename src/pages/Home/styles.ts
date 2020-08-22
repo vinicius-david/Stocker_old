@@ -12,25 +12,27 @@ export const Container = styled.div`
 
 export const Header = styled.header`
   width: 100vw;
-  height: 10vh;
+  min-height: 10vh;
 
   background: var(--color-primary);
   color: var(--color-text-title);
 
   display: flex;
+  align-items: center;
   justify-content: center;
+
+  h1 {
+    margin-left: 5%;
+    font-size: 48px;
+  }
 `;
 
 export const HeaderContent = styled.div`
-  width: 60%;
+  width: 80%;
+  margin-right: 5%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-
-  h1 {
-    margin-right: auto;
-    font-size: 48px;
-  }
 
   form {
     display: flex;
@@ -81,9 +83,9 @@ export const Main = styled.div`
 `;
 
 export const ChartContainer = styled.div`
-  width: 50%;
+  width: 60%;
   height: 50%;
-  margin: 10%;
+  margin: 5%;
 `;
 
 export const StocksContainer = styled.div`
@@ -100,9 +102,9 @@ export const StocksContainer = styled.div`
 
 export const StockItem = styled.div`
   width: 60%;
-  height: 10%;
-  padding: 16px;
-  margin-top: 32px;
+  min-height: 87px;
+  padding-left: 8px;
+  margin: 16px 0;
   border-radius: 8px;
 
   display: flex;
@@ -110,4 +112,56 @@ export const StockItem = styled.div`
   justify-content: space-between;
 
   background: #ddd;
+`;
+
+export const StockInfo = styled.div`
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  h2 {
+    margin-left: 10%;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    justify-content: space-between;
+
+    margin-left: auto;
+    margin-right: 10%;
+  }
+`;
+
+export const StockActions = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100%;
+
+  button:nth-child(1) {
+    border-radius: 0 8px 0 0;
+  }
+
+  button:nth-child(3) {
+    border-radius: 0 0 8px 0;
+  }
+
+  svg {
+    padding: 2px;
+  }
+
+  .add {
+    color: green;
+  }
+
+  .remove {
+    color: red;
+  }
+
+  .info {
+    color: blue;
+  }
 `;
