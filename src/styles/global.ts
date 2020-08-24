@@ -6,9 +6,9 @@ export default createGlobalStyle`
   --color-primary-light: #A7C7F8;
   --color-primary: #7AA9EF;
   --color-primary-dark: #4B7DC7;
-  --color-text-title: #091D3A;
-  --color-text-complement: #9C98A6;
-  --color-text-base: #091D3A;
+  --color-text-title: #E0E0E0;
+  --color-text-complement: #E3D9D9;
+  --color-text-base: #151718;
   --color-input-background: #F8F8FC;
   --color-button-text: #FFFFFF;
 

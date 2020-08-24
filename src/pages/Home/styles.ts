@@ -1,171 +1,80 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+import homeBackground from '../../assets/homeBackground.jpeg';
 
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  overflow: hidden;
-`;
+  width: 30vw;
+  height: 40vh;
 
-export const Header = styled.header`
-  width: 100vw;
-  min-height: 10vh;
-
-  background: var(--color-primary);
-  color: var(--color-text-title);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 10vh;
+  left: 10vw;
+  z-index: 2;
 
   h1 {
-    margin-left: 5%;
-    font-size: 48px;
+    color: var(--color-text-title);
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  h3 {
+    color: var(--color-text-complement);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+
+    margin-top: 3vh;
   }
 `;
 
-export const HeaderContent = styled.div`
-  width: 80%;
-  margin-right: 5%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  form {
-    display: flex;
-
-    div {
-      width: 70%;
-    }
-
-    button {
-      background: var(--color-primary);
-      margin-left: 8px;
-
-      &:hover {
-        color: #fff;
-        transition: 300ms;
-      }
-    }
-  }
-`;
-
-export const IconsContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  a {
-    text-decoration: none;
-    color: var(--color-text-base);
-  }
-
-  svg {
-    margin-left: 24px;
-
-    &:hover {
-      color: #fff;
-      cursor: pointer;
-      transition: 300ms;
-    }
-  }
-`;
-
-export const Main = styled.div`
-  width: 100vw;
-
-  display: flex;
-  flex: 1;
-
-  position: relative;
-`;
-
-export const ChartContainer = styled.div`
-  width: 60%;
-  height: 40%;
-  margin: 5%;
-`;
-
-export const StocksContainer = styled.div`
-  width: 30%;
-  max-height: 56%;
-  background: #aaa;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  overflow-y: scroll;
-
-  div:nth-child(13) {
-    margin-bottom: 56px;
-  }
-`;
-
-export const StockItem = styled.div`
-  width: 60%;
-  min-height: 87px;
-  padding-left: 8px;
-  margin: 16px 0;
-  border-radius: 8px;
-
+export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  background: #ddd;
+  width: 26vw;
+  height: 5vh;
+
+  margin-top: 5vh;
 `;
 
-export const StockInfo = styled.div`
+export const ButtonItem = styled.div`
   display: flex;
   align-items: center;
+  background: var(--color-primary-light);
 
-  width: 100%;
+  border-radius: 4px;
 
-  h2 {
-    margin-left: 10%;
+  svg {
+    margin: 0 16px;
   }
 
-  div {
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-    justify-content: space-between;
+  button {
+    padding: 12px 20px;
+    background: var(--color-primary-light);
+    border-radius: 0 4px 4px 0;
 
-    margin-left: auto;
-    margin-right: 10%;
+    &:hover {
+      background: var(--color-primary-dark);
+      transition: 300ms;
+    }
+  }
+
+  &:hover {
+    background: var(--color-primary);
+    transition: 300ms;
   }
 `;
 
-export const StockActions = styled.div`
-  display: flex;
-  flex-direction: column;
+export const Background = styled.div`
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
 
-  min-height: 100%;
-
-  button:nth-child(1) {
-    border-radius: 0 8px 0 0;
-  }
-
-  button:nth-child(3) {
-    border-radius: 0 0 8px 0;
-  }
-
-  svg {
-    padding: 2px;
-  }
-
-  .add {
-    color: green;
-  }
-
-  .remove {
-    color: red;
-  }
-
-  .info {
-    color: blue;
-  }
+  background: url(${homeBackground}) no-repeat center;
+  background-size: cover;
 `;
