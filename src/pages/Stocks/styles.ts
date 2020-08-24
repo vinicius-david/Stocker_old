@@ -90,7 +90,7 @@ export const ChartContainer = styled.div`
 
 export const StocksContainer = styled.div`
   width: 30%;
-  max-height: 56%;
+  max-height: 60%;
   background: #aaa;
 
   display: flex;
@@ -99,8 +99,19 @@ export const StocksContainer = styled.div`
 
   overflow-y: scroll;
 
-  div:nth-child(13) {
+  div:nth-child(20) {
     margin-bottom: 56px;
+  }
+`;
+
+export const ChooseStock = styled.div`
+  display: flex;
+
+  width: 100%;
+  height: 20%;
+
+  button {
+    width: 50%;
   }
 `;
 

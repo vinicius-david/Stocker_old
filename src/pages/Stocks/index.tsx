@@ -30,6 +30,7 @@ import {
   Main,
   ChartContainer,
   StocksContainer,
+  ChooseStock,
   StockItem,
   StockInfo,
   StockActions,
@@ -52,21 +53,7 @@ const Home: React.FC = () => {
   const searchFormRef = useRef<FormHandles>(null);
   const [selectedStocks, setSelectedStocks] = useState<string[]>([]);
   const [data, setData] = useState({} as DataI[]);
-  const allStocks = [
-    'ITSA4',
-    'ABEV3',
-    'BBAS3',
-    'BBDC3',
-    'BBDC4',
-    'CVCB3',
-    'OIBR3',
-    'PETR4',
-    'KNRI11',
-    'MXRF11',
-    'XPML11',
-    'VISC11',
-    'BCFF11',
-  ];
+  const [allStocks, setAllStocks] = useState<string[]>([]);
 
   useEffect(() => {
     async function loadStocksInfo(name: string) {
@@ -102,6 +89,56 @@ const Home: React.FC = () => {
   const handleSearchSubmit = useCallback(() => {
     console.log(data);
   }, [data]);
+
+  const handleChooseStocks = useCallback(() => {
+    setAllStocks([
+      'ABEV3',
+      'BBAS3',
+      'BBDC3',
+      'BBDC4',
+      'B3SA3',
+      'CVCB3',
+      'ITSA4',
+      'ITUB4',
+      'JBSS3',
+      'LAME4',
+      'LREN3',
+      'MGLU3',
+      'NTCO3',
+      'OIBR3',
+      'PETR4',
+      'RENT3',
+      'SUSB3',
+      'VALE3',
+      'VVAR3',
+      'WEGE3',
+    ]);
+  }, []);
+
+  const handleChooseFIIS = useCallback(() => {
+    setAllStocks([
+      'BBPO11',
+      'BCFF11',
+      'BRCO11',
+      'BRCR11',
+      'GTWR11',
+      'HFOF11',
+      'HGBS11',
+      'HGLG11',
+      'HGRU11',
+      'HSML11',
+      'IRDM11',
+      'JSRE11',
+      'KNCR11',
+      'KNIP11',
+      'KNRI11',
+      'MXRF11',
+      'VILG11',
+      'VISC11',
+      'XPLG11',
+      'XPML11',
+    ]);
+  }, []);
 
   const handleAddStock = useCallback(
     (name: string) => {
@@ -170,6 +207,14 @@ const Home: React.FC = () => {
           <Chart data={data} series={series} axes={axes} />
         </ChartContainer>
         <StocksContainer>
+          <ChooseStock>
+            <button type="button" onClick={handleChooseStocks}>
+              Ações
+            </button>
+            <button type="button" onClick={handleChooseFIIS}>
+              FII
+            </button>
+          </ChooseStock>
           {allStocks.map(stock => (
             <StockItem>
               <StockInfo>
