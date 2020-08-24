@@ -33,40 +33,57 @@ export const Container = styled.div`
 
 export const ButtonsContainer = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: left;
   justify-content: space-between;
 
-  width: 26vw;
   height: 5vh;
+  width: 45%;
 
-  margin-top: 5vh;
+  margin-top: 4vh;
 `;
 
 export const ButtonItem = styled.div`
   display: flex;
   align-items: center;
   background: var(--color-primary-light);
+  color: #0a290a;
 
   border-radius: 4px;
+  margin-bottom: 2vh;
+
+  height: 48px;
+  width: 240px;
 
   svg {
-    margin: 0 16px;
+    width: 30%;
+    height: 100%;
+    padding: 12px;
+    border-radius: 4px 0 0 4px;
+
+    background: var(--color-primary);
   }
 
-  button {
-    padding: 12px 20px;
+  a {
     background: var(--color-primary-light);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 12px 20px;
     border-radius: 0 4px 4px 0;
+
+    font-weight: 700;
+    text-decoration: none;
+    color: #0a290a;
 
     &:hover {
       background: var(--color-primary-dark);
+      color: var(--color-button-text);
       transition: 300ms;
     }
-  }
-
-  &:hover {
-    background: var(--color-primary);
-    transition: 300ms;
   }
 `;
 

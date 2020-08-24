@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiTrendingUp, FiLogIn } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 import { Container, ButtonsContainer, ButtonItem, Background } from './styles';
 
@@ -14,12 +15,12 @@ const Home: React.FC = () => (
 
       <ButtonsContainer>
         <ButtonItem>
-          <FiTrendingUp size={32} />
-          <button type="button">Ações/FIIS</button>
+          <FiTrendingUp size={24} />
+          <Link to="/stocks">Ações / FIIS</Link>
         </ButtonItem>
         <ButtonItem>
-          <FiLogIn size={32} />
-          <button type="button">Fazer login</button>
+          <FiLogIn size={24} />
+          <Link to="/login">Fazer login</Link>
         </ButtonItem>
       </ButtonsContainer>
     </Container>

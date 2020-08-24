@@ -3,9 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
   :root {
   --color-background: #edf8ff;
-  --color-primary-light: #A7C7F8;
-  --color-primary: #7AA9EF;
-  --color-primary-dark: #4B7DC7;
+  --color-primary-light: #B4F0B3;
+  --color-primary: #77BC76;
+  --color-primary-dark: #459443;
   --color-text-title: #E0E0E0;
   --color-text-complement: #E3D9D9;
   --color-text-base: #151718;
