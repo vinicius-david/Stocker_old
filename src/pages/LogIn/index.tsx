@@ -16,13 +16,8 @@ import {
 
 const Home: React.FC = () => {
   const searchFormRef = useRef<FormHandles>(null);
-  const loginFormRef = useRef<FormHandles>(null);
 
   const handleSearchSubmit = useCallback(() => {
-    console.log('dine');
-  }, []);
-
-  const handleLoginSubmit = useCallback(() => {
     console.log('dine');
   }, []);
 
