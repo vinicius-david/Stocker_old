@@ -1,17 +1,18 @@
 import React, { useRef, useCallback } from 'react';
-import { FiSearch, FiHome, FiUser, FiSettings } from 'react-icons/fi';
+import { FiHome, FiUser, FiTrendingUp, FiSearch } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
-import { Link } from 'react-router-dom';
 
 import Input from '../Input';
+
 import { Header, HeaderContent, IconsContainer } from './styles';
 
 const Button: React.FC = () => {
   const searchFormRef = useRef<FormHandles>(null);
 
   const handleSearchSubmit = useCallback(() => {
-    console.log('ok');
+    console.log('data');
   }, []);
 
   return (
@@ -34,7 +35,9 @@ const Button: React.FC = () => {
           <Link to="/login">
             <FiUser size={24} />
           </Link>
-          <FiSettings size={24} />
+          <Link to="/stocks">
+            <FiTrendingUp size={24} />
+          </Link>
         </IconsContainer>
       </HeaderContent>
     </Header>

@@ -1,79 +1,72 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+import loginBackground from '../../assets/loginBackground.jpeg';
+
+export const FormContainer = styled.div`
+  width: 25vw;
+  height: 50vh;
+  padding: 32px 40px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 5px #333;
+  background: var(--color-background);
 
   display: flex;
   flex-direction: column;
-`;
 
-export const Header = styled.header`
-  width: 100vw;
-  min-height: 10vh;
+  position: absolute;
+  top: 20%;
+  left: 37.5%;
+  z-index: 2;
 
-  background: var(--color-primary);
-  color: var(--color-text-title);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  h1 {
+  h2 {
+    font-size: 28px;
+    margin-bottom: 15%;
     margin-left: 5%;
-    font-size: 48px;
   }
-`;
 
-export const HeaderContent = styled.div`
-  width: 80%;
-  margin-right: 5%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  strong {
+    font-size: 16px;
+    margin-left: 5%;
+  }
 
   form {
     display: flex;
-
+    flex-direction: column;
+    align-items: center;
     div {
-      width: 70%;
+      width: 90%;
+      margin-top: 16px;
     }
 
     button {
-      background: var(--color-primary);
-      margin-left: 8px;
-
-      &:hover {
-        color: #fff;
-        transition: 300ms;
-      }
+      height: 30%;
+      width: 90%;
     }
   }
 `;
 
-export const IconsContainer = styled.div`
+export const LinksContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  margin-top: 30%;
 
   a {
     text-decoration: none;
-    color: var(--color-text-base);
-  }
-
-  svg {
-    margin-left: 24px;
+    color: var(--color-primary);
 
     &:hover {
-      color: #fff;
-      cursor: pointer;
-      transition: 300ms;
+      color: var(--color-primary-dark);
     }
   }
 `;
 
-export const Main = styled.div`
+export const Background = styled.div`
+  position: absolute;
   width: 100vw;
+  height: 90vh;
 
-  display: flex;
-  flex: 1;
+  background: url(${loginBackground}) no-repeat center;
+  background-size: cover;
 `;

@@ -1,32 +1,12 @@
-import React, {
-  useRef,
-  useCallback,
-  useMemo,
-  useState,
-  useEffect,
-} from 'react';
-import {
-  FiHome,
-  FiUser,
-  FiSettings,
-  FiSearch,
-  FiPlusCircle,
-  FiMinusCircle,
-  FiInfo,
-} from 'react-icons/fi';
-import { Form } from '@unform/web';
-import { FormHandles } from '@unform/core';
-import { Link } from 'react-router-dom';
+import React, { useCallback, useMemo, useState, useEffect } from 'react';
+import { FiPlusCircle, FiInfo } from 'react-icons/fi';
 import { Chart } from 'react-charts';
 import axios from 'axios';
 
-import Input from '../../components/Input';
+import Header from '../../components/Header';
 
 import {
   Container,
-  Header,
-  HeaderContent,
-  IconsContainer,
   Main,
   ChartContainer,
   StocksContainer,
@@ -50,8 +30,7 @@ interface DataI {
 }
 
 const Home: React.FC = () => {
-  const searchFormRef = useRef<FormHandles>(null);
-  const [selectedStocks, setSelectedStocks] = useState<string[]>([]);
+  const [selectedStock, setSelectedStock] = useState<string>('ABEV3');
   const [data, setData] = useState({} as DataI[]);
   const [allStocks, setAllStocks] = useState<string[]>([]);
 
@@ -75,16 +54,10 @@ const Home: React.FC = () => {
       return dataObject;
     }
 
-    const promises = selectedStocks.map(item => {
-      return loadStocksInfo(item).then(response => {
-        return response;
-      });
+    loadStocksInfo(selectedStock).then(results => {
+      setData([results]);
     });
-
-    Promise.all(promises).then(results => {
-      setData(results);
-    });
-  }, [selectedStocks]);
+  }, [selectedStock]);
 
   const handleSearchSubmit = useCallback(() => {
     console.log(data);
@@ -142,24 +115,9 @@ const Home: React.FC = () => {
 
   const handleAddStock = useCallback(
     (name: string) => {
-      const currentStocks = [...selectedStocks];
-      const checkStock = currentStocks.find(item => item === name);
-
-      if (!checkStock) {
-        setSelectedStocks(oldStocks => [...oldStocks, name]);
-      }
+      setSelectedStock(name);
     },
-    [selectedStocks, setSelectedStocks],
-  );
-
-  const handleRemoveStock = useCallback(
-    (name: string) => {
-      const currentStocks = [...selectedStocks];
-      const newStocks = currentStocks.filter(item => item !== name);
-
-      setSelectedStocks(newStocks);
-    },
-    [selectedStocks],
+    [setSelectedStock],
   );
 
   const series = useMemo(
@@ -179,29 +137,7 @@ const Home: React.FC = () => {
 
   return (
     <Container>
-      <Header>
-        <h1>STOCKER</h1>
-
-        <HeaderContent>
-          <Form ref={searchFormRef} onSubmit={handleSearchSubmit}>
-            <Input name="search" placeholder="Buscar uma ação" />
-
-            <button type="submit">
-              <FiSearch size={24} />
-            </button>
-          </Form>
-
-          <IconsContainer>
-            <Link to="/">
-              <FiHome size={24} />
-            </Link>
-            <Link to="/login">
-              <FiUser size={24} />
-            </Link>
-            <FiSettings size={24} />
-          </IconsContainer>
-        </HeaderContent>
-      </Header>
+      <Header />
       <Main>
         <ChartContainer>
           <Chart data={data} series={series} axes={axes} />
@@ -216,7 +152,7 @@ const Home: React.FC = () => {
             </button>
           </ChooseStock>
           {allStocks.map(stock => (
-            <StockItem>
+            <StockItem key={stock}>
               <StockInfo>
                 <h2>{stock}</h2>
                 <div>
@@ -233,16 +169,6 @@ const Home: React.FC = () => {
                   }}
                 >
                   <FiPlusCircle size={24} />
-                </button>
-
-                <button
-                  type="button"
-                  className="remove"
-                  onClick={() => {
-                    handleRemoveStock(stock);
-                  }}
-                >
-                  <FiMinusCircle size={24} />
                 </button>
 
                 <button type="button" className="info">

@@ -61,11 +61,11 @@ export const ButtonItem = styled.div`
     padding: 12px;
     border-radius: 4px 0 0 4px;
 
-    background: var(--color-primary);
+    background: var(--color-primary-light);
   }
 
   a {
-    background: var(--color-primary-light);
+    background: var(--color-text-complement);
 
     display: flex;
     align-items: center;

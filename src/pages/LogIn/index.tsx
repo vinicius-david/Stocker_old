@@ -1,54 +1,43 @@
 import React, { useRef, useCallback } from 'react';
-import { FiUser, FiSearch, FiSettings, FiHome } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
+import { FiMail, FiLock } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
+import Header from '../../components/Header';
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 
-import {
-  Container,
-  Header,
-  HeaderContent,
-  IconsContainer,
-  Main,
-} from './styles';
+import { FormContainer, LinksContainer, Background } from './styles';
 
-const Home: React.FC = () => {
-  const searchFormRef = useRef<FormHandles>(null);
+const LogIn: React.FC = () => {
+  const logInFormRef = useRef<FormHandles>(null);
 
-  const handleSearchSubmit = useCallback(() => {
-    console.log('dine');
+  const handleSubmit = useCallback(() => {
+    console.log('data');
   }, []);
 
   return (
-    <Container>
-      <Header>
-        <h1>STOCKER</h1>
+    <>
+      <Header />
+      <FormContainer>
+        <h2>Bem vindo(a) de volta ao Stocker!</h2>
 
-        <HeaderContent>
-          <Form ref={searchFormRef} onSubmit={handleSearchSubmit}>
-            <Input name="search" placeholder="Buscar uma ação" />
+        <strong>Fazer login</strong>
+        <Form ref={logInFormRef} onSubmit={handleSubmit}>
+          <Input name="email" icon={FiMail} />
+          <Input name="password" type="password" icon={FiLock} />
+          <Button type="submit">Entrar</Button>
+        </Form>
 
-            <button type="submit">
-              <FiSearch size={24} />
-            </button>
-          </Form>
-
-          <IconsContainer>
-            <Link to="/">
-              <FiHome size={24} />
-            </Link>
-            <Link to="/login">
-              <FiUser size={24} />
-            </Link>
-            <FiSettings size={24} />
-          </IconsContainer>
-        </HeaderContent>
-      </Header>
-      <Main />
-    </Container>
+        <LinksContainer>
+          <Link to="/">Cadastre-se</Link>
+          <Link to="/">Esqueci a senha</Link>
+        </LinksContainer>
+      </FormContainer>
+      <Background />
+    </>
   );
 };
 
-export default Home;
+export default LogIn;

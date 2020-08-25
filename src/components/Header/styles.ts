@@ -3,23 +3,22 @@ import styled from 'styled-components';
 export const Header = styled.header`
   width: 100vw;
   min-height: 10vh;
+  padding: 0 5% 0 10%;
 
-  background: var(--color-primary);
+  background: var(--color-background-dark);
   color: var(--color-text-title);
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   h1 {
-    margin-left: 5%;
     font-size: 48px;
   }
 `;
 
 export const HeaderContent = styled.div`
   width: 80%;
-  margin-right: 5%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -32,7 +31,7 @@ export const HeaderContent = styled.div`
     }
 
     button {
-      background: var(--color-primary);
+      background: var(--color-background-dark);
       margin-left: 8px;
 
       &:hover {
