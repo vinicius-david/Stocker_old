@@ -19,9 +19,8 @@ export const FormContainer = styled.div`
   z-index: 2;
 
   h2 {
-    width: 80%;
     font-size: 28px;
-    margin-bottom: 15%;
+    margin-bottom: 10%;
     margin-left: 5%;
   }
 
@@ -56,11 +55,14 @@ export const FormContainer = styled.div`
 export const LinksContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
-  margin-top: 28%;
+  margin-top: 15%;
   margin-left: 5%;
-  width: 80%;
+
+  svg {
+    color: var(--color-primary-dark);
+  }
 
   a {
     text-decoration: none;

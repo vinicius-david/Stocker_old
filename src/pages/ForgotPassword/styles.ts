@@ -19,13 +19,13 @@ export const FormContainer = styled.div`
   z-index: 2;
 
   h2 {
-    width: 80%;
     font-size: 28px;
     margin-bottom: 15%;
     margin-left: 5%;
   }
 
   strong {
+    width: 90%;
     font-size: 16px;
     margin-left: 5%;
   }
@@ -36,13 +36,14 @@ export const FormContainer = styled.div`
     align-items: center;
 
     width: 90%;
+
     div {
       width: 90%;
-      margin-top: 16px;
+      margin-top: 15%;
     }
 
     button {
-      height: 30%;
+      height: 40%;
       width: 90%;
     }
   }
@@ -56,11 +57,14 @@ export const FormContainer = styled.div`
 export const LinksContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
-  margin-top: 28%;
+  margin-top: 35%;
   margin-left: 5%;
-  width: 80%;
+
+  svg {
+    color: var(--color-primary-dark);
+  }
 
   a {
     text-decoration: none;

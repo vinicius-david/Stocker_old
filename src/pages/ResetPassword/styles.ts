@@ -19,15 +19,16 @@ export const FormContainer = styled.div`
   z-index: 2;
 
   h2 {
-    width: 80%;
     font-size: 28px;
     margin-bottom: 15%;
     margin-left: 5%;
   }
 
   strong {
+    width: 90%;
     font-size: 16px;
     margin-left: 5%;
+    margin-bottom: 10%;
   }
 
   form {
@@ -36,13 +37,14 @@ export const FormContainer = styled.div`
     align-items: center;
 
     width: 90%;
+
     div {
       width: 90%;
-      margin-top: 16px;
+      margin-top: 5%;
     }
 
     button {
-      height: 30%;
+      height: 40%;
       width: 90%;
     }
   }
@@ -50,25 +52,6 @@ export const FormContainer = styled.div`
   &:hover {
     box-shadow: 3px 3px 6px #555;
     transition: 300ms;
-  }
-`;
-
-export const LinksContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin-top: 28%;
-  margin-left: 5%;
-  width: 80%;
-
-  a {
-    text-decoration: none;
-    color: var(--color-primary);
-
-    &:hover {
-      color: var(--color-primary-dark);
-    }
   }
 `;
 

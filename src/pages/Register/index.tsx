@@ -1,7 +1,7 @@
 import React, { useRef, useCallback } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
-import { FiMail, FiLock } from 'react-icons/fi';
+import { FiMail, FiLock, FiArrowLeft, FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 import Header from '../../components/Header';
@@ -10,7 +10,7 @@ import Button from '../../components/Button';
 
 import { FormContainer, LinksContainer, Background } from './styles';
 
-const LogIn: React.FC = () => {
+const Register: React.FC = () => {
   const logInFormRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback(() => {
@@ -21,23 +21,30 @@ const LogIn: React.FC = () => {
     <>
       <Header />
       <FormContainer>
-        <h2>Bem vindo(a) de volta ao Stocker!</h2>
+        <h2>Bem vindo(a) ao Stocker!</h2>
 
-        <strong>Fazer login</strong>
+        <strong>Cadastro</strong>
         <Form ref={logInFormRef} onSubmit={handleSubmit}>
+          <Input name="name" icon={FiUser} placeholder="Digite seu nome" />
           <Input name="email" icon={FiMail} placeholder="Digite seu email" />
           <Input
             name="password"
             type="password"
             icon={FiLock}
-            placeholder="Digite sua senha"
+            placeholder="Escolha uma senha"
           />
-          <Button type="submit">Entrar</Button>
+          <Input
+            name="password-confirmation"
+            type="password"
+            icon={FiLock}
+            placeholder="Confirme sua senha"
+          />
+          <Button type="submit">Cadastrar</Button>
         </Form>
 
         <LinksContainer>
-          <Link to="/register">Cadastre-se</Link>
-          <Link to="/forgot-password">Esqueci a senha</Link>
+          <FiArrowLeft size={20} />
+          <Link to="/login">Voltar ao login</Link>
         </LinksContainer>
       </FormContainer>
       <Background />
@@ -45,4 +52,4 @@ const LogIn: React.FC = () => {
   );
 };
 
-export default LogIn;
+export default Register;

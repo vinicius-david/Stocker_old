@@ -1,16 +1,15 @@
 import React, { useRef, useCallback } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
-import { FiMail, FiLock } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { FiLock } from 'react-icons/fi';
 
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import { FormContainer, LinksContainer, Background } from './styles';
+import { FormContainer, Background } from './styles';
 
-const LogIn: React.FC = () => {
+const ResetPassword: React.FC = () => {
   const logInFormRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback(() => {
@@ -21,28 +20,31 @@ const LogIn: React.FC = () => {
     <>
       <Header />
       <FormContainer>
-        <h2>Bem vindo(a) de volta ao Stocker!</h2>
+        <h2>Redefinir senha</h2>
 
-        <strong>Fazer login</strong>
+        <strong>
+          Defina uma nova senha para ter acesso ao Stocker novamente.
+        </strong>
         <Form ref={logInFormRef} onSubmit={handleSubmit}>
-          <Input name="email" icon={FiMail} placeholder="Digite seu email" />
           <Input
             name="password"
             type="password"
             icon={FiLock}
-            placeholder="Digite sua senha"
+            placeholder="Escolha uma nova senha"
           />
-          <Button type="submit">Entrar</Button>
-        </Form>
+          <Input
+            name="password-confirmation"
+            type="password"
+            icon={FiLock}
+            placeholder="Confirme sua senha"
+          />
 
-        <LinksContainer>
-          <Link to="/register">Cadastre-se</Link>
-          <Link to="/forgot-password">Esqueci a senha</Link>
-        </LinksContainer>
+          <Button type="submit">Redefinir</Button>
+        </Form>
       </FormContainer>
       <Background />
     </>
   );
 };
 
-export default LogIn;
+export default ResetPassword;
