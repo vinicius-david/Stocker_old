@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import { FiActivity, FiInfo } from 'react-icons/fi';
-import { Chart } from 'react-charts';
 import axios from 'axios';
 
 import Header from '../../components/Header';
+import Chart from '../../components/Chart';
 
 import {
   Container,
@@ -86,7 +86,6 @@ const Home: React.FC = () => {
       'BBAS3',
       'BBDC3',
       'BBDC4',
-      'B3SA3',
       'CVCB3',
       'ITSA4',
       'ITUB4',
@@ -137,13 +136,6 @@ const Home: React.FC = () => {
     [setSelectedStock],
   );
 
-  const series = useMemo(
-    () => ({
-      showPoints: true,
-    }),
-    [],
-  );
-
   const axes = useMemo(
     () => [
       {
@@ -162,7 +154,7 @@ const Home: React.FC = () => {
       <Header />
       <Main>
         <ChartContainer>
-          <Chart data={data} series={series} axes={axes} />
+          <Chart data={data} axes={axes} />
         </ChartContainer>
         <StocksContainer>
           <ChooseStock>

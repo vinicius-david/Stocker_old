@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const animateSize = keyframes`
+  from {
+    width: 50%;
+    height: 50vh;
+  }
+  to {
+    width: 60%;
+    height: 65vh;
+  }
+`;
 
 export const Container = styled.div`
   width: 100vw;
@@ -21,11 +32,13 @@ export const Main = styled.div`
 
 export const ChartContainer = styled.div`
   width: 60%;
-  height: 40%;
+  height: 65vh;
 
   div {
     margin: 10%;
   }
+
+  animation: ${animateSize} 0.5s ease-out;
 `;
 
 export const StocksContainer = styled.div`
