@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState, useEffect } from 'react';
-import { FiPlusCircle, FiInfo } from 'react-icons/fi';
+import { FiActivity, FiInfo } from 'react-icons/fi';
 import { Chart } from 'react-charts';
 import axios from 'axios';
 
@@ -26,12 +26,13 @@ interface ApiResponseValues {
 
 interface DataI {
   label: string;
-  data: number[][];
+  data: (string | number)[][];
 }
 
 const Home: React.FC = () => {
   const [selectedStock, setSelectedStock] = useState<string>('ABEV3');
   const [data, setData] = useState({} as DataI[]);
+  const [timestamps, setTimestamps] = useState({} as number[]);
   const [allStocks, setAllStocks] = useState<string[]>([]);
 
   useEffect(() => {
@@ -40,28 +41,44 @@ const Home: React.FC = () => {
         `https://www.alphavantage.co/query?function=TIME_SERIES_DAilY&symbol=${name}.SA&interval=5min&apikey=${process.env.API_KEY}`,
       );
       const crudeResponse = response.data['Time Series (Daily)'];
+
+      const datesArray: string[] = Object.keys(crudeResponse).reverse();
+      const datesAsStringsArrays = datesArray.map(date => date.split('-'));
+      const timestampsDates = datesAsStringsArrays.map(date => {
+        const eachDate = new Date(
+          Number(date[0]),
+          Number(date[1]),
+          Number(date[2]),
+        );
+        return eachDate.getTime();
+      });
+
       const valuesArray: ApiResponseValues[] = Object.values(crudeResponse);
       const closeValuesArray = valuesArray.map((item: ApiResponseValues) => {
-        return item['1. open'];
+        return item['4. close'];
       });
-      const newDataArray = closeValuesArray.map((value, index) => {
+      const newDataArray = closeValuesArray.reverse().map((value, index) => {
         return [index, Number(value)];
       });
       const dataObject: DataI = {
         label: name,
         data: newDataArray,
       };
-      return dataObject;
+      return {
+        dataObject,
+        timestampsDates,
+      };
     }
 
     loadStocksInfo(selectedStock).then(results => {
-      setData([results]);
+      setData([results.dataObject]);
+      setTimestamps(results.timestampsDates);
     });
   }, [selectedStock]);
 
   const handleSearchSubmit = useCallback(() => {
-    console.log(data);
-  }, [data]);
+    console.log('ok');
+  }, []);
 
   const handleChooseStocks = useCallback(() => {
     setAllStocks([
@@ -129,10 +146,15 @@ const Home: React.FC = () => {
 
   const axes = useMemo(
     () => [
-      { primary: true, type: 'linear', position: 'bottom' },
+      {
+        primary: true,
+        type: 'utc',
+        position: 'bottom',
+        format: (index: number) => timestamps[index],
+      },
       { type: 'linear', position: 'left' },
     ],
-    [],
+    [timestamps],
   );
 
   return (
@@ -144,11 +166,15 @@ const Home: React.FC = () => {
         </ChartContainer>
         <StocksContainer>
           <ChooseStock>
-            <button type="button" onClick={handleChooseStocks}>
+            <button
+              type="button"
+              onClick={handleChooseStocks}
+              className="stocks"
+            >
               Ações
             </button>
-            <button type="button" onClick={handleChooseFIIS}>
-              FII
+            <button type="button" onClick={handleChooseFIIS} className="FIIS">
+              FIIS
             </button>
           </ChooseStock>
           {allStocks.map(stock => (
@@ -163,16 +189,16 @@ const Home: React.FC = () => {
               <StockActions>
                 <button
                   type="button"
-                  className="add"
+                  className="chart"
                   onClick={() => {
                     handleAddStock(stock);
                   }}
                 >
-                  <FiPlusCircle size={24} />
+                  <FiActivity size={38} />
                 </button>
 
                 <button type="button" className="info">
-                  <FiInfo size={24} />
+                  <FiInfo size={38} />
                 </button>
               </StockActions>
             </StockItem>
