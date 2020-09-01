@@ -33,7 +33,27 @@ const Home: React.FC = () => {
   const [selectedStock, setSelectedStock] = useState<string>('ABEV3');
   const [data, setData] = useState({} as DataI[]);
   const [timestamps, setTimestamps] = useState({} as number[]);
-  const [allStocks, setAllStocks] = useState<string[]>([]);
+  const [allStocks, setAllStocks] = useState<string[]>([
+    'ABEV3',
+    'BBAS3',
+    'BBDC3',
+    'BBDC4',
+    'CVCB3',
+    'ITSA4',
+    'ITUB4',
+    'JBSS3',
+    'LAME4',
+    'LREN3',
+    'MGLU3',
+    'NTCO3',
+    'OIBR3',
+    'PETR4',
+    'RENT3',
+    'SUSB3',
+    'VALE3',
+    'VVAR3',
+    'WEGE3',
+  ]);
 
   useEffect(() => {
     async function loadStocksInfo(name: string) {
@@ -154,6 +174,7 @@ const Home: React.FC = () => {
       <Header />
       <Main>
         <ChartContainer>
+          <h2>{selectedStock}</h2>
           <Chart data={data} axes={axes} />
         </ChartContainer>
         <StocksContainer>

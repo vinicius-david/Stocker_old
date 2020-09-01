@@ -1,6 +1,17 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import loginBackground from '../../assets/loginBackground.jpeg';
+
+const animateDown = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+`;
 
 export const FormContainer = styled.div`
   width: 25vw;
@@ -17,6 +28,8 @@ export const FormContainer = styled.div`
   top: 20%;
   left: 37.5%;
   z-index: 2;
+
+  animation: ${animateDown} 1s ease;
 
   h2 {
     font-size: 28px;

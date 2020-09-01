@@ -2,12 +2,14 @@ import styled, { keyframes } from 'styled-components';
 
 const animateSize = keyframes`
   from {
-    width: 50%;
-    height: 50vh;
+    width: 40%;
+    height: 40vh;
+    opacity: 0.5;
   }
   to {
     width: 60%;
     height: 65vh;
+    opacity: 1;
   }
 `;
 
@@ -31,20 +33,28 @@ export const Main = styled.div`
 `;
 
 export const ChartContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   width: 60%;
   height: 65vh;
 
-  div {
-    margin: 10%;
+  margin-top: 1%;
+  margin-left: 4%;
+
+  h2 {
+    font-size: 48px;
+    margin-bottom: 5%;
   }
 
-  animation: ${animateSize} 0.5s ease-out;
+  animation: ${animateSize} 0.5s ease;
 `;
 
 export const StocksContainer = styled.div`
   width: 30%;
   height: 100%;
-  background: #aaa;
+  background: -webkit-radial-gradient(white, #dadaff, #c5e1ff);
 
   display: flex;
   flex-direction: column;
@@ -70,11 +80,39 @@ export const ChooseStock = styled.div`
   }
 
   .stocks {
-    background: green;
+    color: #ddd;
+    background: -webkit-linear-gradient(
+      right,
+      var(--color-primary-light),
+      var(--color-primary)
+    );
+
+    &:hover {
+      background: -webkit-linear-gradient(
+        right,
+        var(--color-primary-light),
+        var(--color-primary-dark)
+      );
+      transition: 500ms;
+    }
   }
 
   .FIIS {
-    background: blue;
+    color: #ddd;
+    background: -webkit-linear-gradient(
+      left,
+      var(--color-primary-light),
+      var(--color-primary)
+    );
+
+    &:hover {
+      background: -webkit-linear-gradient(
+        left,
+        var(--color-primary-light),
+        var(--color-primary-dark)
+      );
+      transition: 500ms;
+    }
   }
 `;
 
@@ -89,7 +127,7 @@ export const StockItem = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  background: #ddd;
+  background: -webkit-linear-gradient(left, white, var(--color-primary-light));
 
   &:hover {
     transform: translateX(5px);
@@ -130,6 +168,7 @@ export const StockActions = styled.div`
 
     &:hover {
       background: var(--color-primary-dark);
+      color: #eee;
       transition: 300ms;
     }
   }
@@ -139,6 +178,7 @@ export const StockActions = styled.div`
 
     &:hover {
       background: var(--color-primary-dark);
+      color: #eee;
       transition: 300ms;
     }
   }
@@ -148,10 +188,10 @@ export const StockActions = styled.div`
   }
 
   .chart {
-    color: green;
+    color: var(--color-primary-dark);
   }
 
   .info {
-    color: blue;
+    color: var(--color-primary-dark);
   }
 `;

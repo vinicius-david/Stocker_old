@@ -19,6 +19,17 @@ const ChartComponent: React.FC<ChartProps> = ({ data, axes }) => {
     [],
   );
 
+  const tooltip = useMemo(
+    () => ({
+      align: 'center',
+      tooltipArrowPadding: '3',
+      arrowPosition: 'center',
+      show: true,
+      // padding: '-4',
+    }),
+    [],
+  );
+
   const getSeriesStyle = React.useCallback(
     () => ({
       transition: 'all .5s ease',
@@ -40,7 +51,7 @@ const ChartComponent: React.FC<ChartProps> = ({ data, axes }) => {
       axes={axes}
       getSeriesStyle={getSeriesStyle}
       getDatumStyle={getDatumStyle}
-      tooltip
+      tooltip={tooltip}
     />
   );
 };

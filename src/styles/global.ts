@@ -4,9 +4,9 @@ export default createGlobalStyle`
   :root {
   --color-background: #edf8ff;
   --color-background-dark: #4C585F;
-  --color-primary-light: #B4F0B3;
-  --color-primary: #77BC76;
-  --color-primary-dark: #459443;
+  --color-primary-light: #B4BBF0;
+  --color-primary: #7777BC;
+  --color-primary-dark: #6666aa;
   --color-text-title: #E0E0E0;
   --color-text-complement: #E3D9D9;
   --color-text-base: #151718;

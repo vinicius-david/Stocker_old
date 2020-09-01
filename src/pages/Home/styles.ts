@@ -1,6 +1,26 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import homeBackground from '../../assets/homeBackground.jpeg';
+
+const animateOpacity = keyframes`
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const animateFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -13,6 +33,8 @@ export const Container = styled.div`
   top: 10vh;
   left: 10vw;
   z-index: 2;
+
+  animation: ${animateFromLeft} 1s ease-out;
 
   h1 {
     color: var(--color-text-title);
@@ -94,4 +116,6 @@ export const Background = styled.div`
 
   background: url(${homeBackground}) no-repeat center;
   background-size: cover;
+
+  animation: ${animateOpacity} 0.5s ease;
 `;
